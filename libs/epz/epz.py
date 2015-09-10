@@ -231,7 +231,7 @@ class CMDREC(SkelCMDREC,threading.Thread):
     def __init__(self,environment):
         
         threading.Thread.__init__(self)
-        CMDREC.__init__(self, environment)        
+        SkelCMDREC.__init__(self, environment)        
 
 
 try:

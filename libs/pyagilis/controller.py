@@ -160,8 +160,10 @@ class AGUC8(object):
         self.channels[channel][alias] = Axis(name,stepAmp,controller = self)
     
     
-    def move(self,d1,d2,ch=self.defChannel):
+    def move(self,d1,d2,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         self.channels[ch][self.aliases[0]].jog(d1)
@@ -170,8 +172,10 @@ class AGUC8(object):
         self.channels[ch][self.aliases[1]].amIstill(100)
         
     
-    def moveUpUp(self,ch=self.defChannel):
+    def moveUpUp(self,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         self.channels[ch][self.aliases[0]].goMax()
@@ -180,8 +184,10 @@ class AGUC8(object):
         self.channels[ch][self.aliases[1]].amIstill(RATE)
         
         
-    def moveDownDown(self,ch=self.defChannel):
+    def moveDownDown(self,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         self.channels[ch][self.aliases[0]].goMin()
@@ -190,8 +196,10 @@ class AGUC8(object):
         self.channels[ch][self.aliases[1]].amIstill(RATE)
         
         
-    def moveDownUp(self,ch=self.defChannel):
+    def moveDownUp(self,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         self.channels[ch][self.aliases[0]].goMin()
@@ -200,8 +208,10 @@ class AGUC8(object):
         self.channels[ch][self.aliases[1]].amIstill(RATE)
         
         
-    def moveUpDown(self,ch=self.defChannel):
+    def moveUpDown(self,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         self.channels[ch][self.aliases[0]].goMax()
@@ -210,8 +220,10 @@ class AGUC8(object):
         self.channels[ch][self.aliases[1]].amIstill(RATE)
         
         
-    def goToZero(self,ch=self.defChannel):
+    def goToZero(self,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         steps1 = self.channels[ch][self.aliases[0]].queryCounter()
@@ -223,16 +235,20 @@ class AGUC8(object):
         self.channels[ch][self.aliases[1]].amIstill(150)
         
     
-    def setZero(self,ch=self.defChannel):
+    def setZero(self,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         self.channels[ch][self.aliases[0]].resetCounter()
         self.channels[ch][self.aliases[1]].resetCounter()
         
         
-    def stop(self,ch=self.defChannel):
+    def stop(self,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         if self.mThread.isAlive():
@@ -244,8 +260,10 @@ class AGUC8(object):
         self.channels[ch][self.aliases[1]].stop()
         
     
-    def followApath(self,path,ch=self.defChannel):
+    def followApath(self,path,ch='def'):
         
+        if ch == 'def':
+            ch = ch=self.defChannel
         self.chchch(ch)
         
         steps = []
