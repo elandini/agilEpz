@@ -1,0 +1,9 @@
+[PORT]
+com = /dev/ttyUSB0
+
+[CONTROLLER]
+channel = 1
+x = 1
+y = 2
+ampx = 30
+ampy = 30
